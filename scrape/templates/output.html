@@ -1,0 +1,60 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<head>
+        
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+    <link  href="https://cdn.datatables.net/1.10.12/css/dataTables.jqueryui.min.css"> 
+    <script src="//code.jquery.com/jquery-1.12.3.js" ></script> 
+    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script> 
+    <title>Results</title>
+</head>
+<body>
+
+	<div align="center">
+	{% for n in name %}
+		<span> {{n}} </span><br>
+	{% endfor %}
+	</div>
+	<table id="marks" class="display" cellspacing="0" width="100%" style="background-color: rgb(198, 215, 194)";>
+        <thead>
+            <tr>
+                <th>Subject</th>
+                <th>Internals</th>
+                <th>Externals</th>
+                <th>Total</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+    <tbody>
+    	{% for s,i,e,t,r in data %}
+            <tr>
+                <td>{{s}}</td>
+                <td>{{i}}</td>
+                <td>{{e}}</td>
+                <td>{{t}}</td>
+                <td>{{r}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+    <div align="center">
+    	<span> Aggregrate percentage is {{percentage}} </span>
+    </div>
+    <div align="left">
+    	<span> Disclaimer : All the data is obtained from college website. </span>
+    </div>
+    <script type="text/javascript">
+    	$(document).ready(function() {
+             $('#marks').DataTable();
+        } );
+    </script>
+</body>
+<footer>
+  <div class="footer">
+      <div align="center">
+        <a href="#">Developed by <span>Yashwanth Reddy</span></a>
+      </div>
+  </div>
+</footer>
