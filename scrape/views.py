@@ -19,8 +19,8 @@ def get_marks(request):
             # ...
             # redirect to a new URL:
             hallticket = form.cleaned_data['hall_ticket_no']
-            print 'Hallticket ' + hallticket +' received'
             sub_name,internal_marks,external_marks,total_marks,result,name,percentage = Scrape().marks(hallticket)
+            print ''+hallticket+' '+name[1]+' '+percentage
             return render(request, 'output.html', {'data': zip(sub_name,internal_marks,external_marks,total_marks,result),'name':name, 'percentage':percentage })
 
     # if a GET (or any other method) we'll create a blank form
