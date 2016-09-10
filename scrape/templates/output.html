@@ -47,7 +47,10 @@
     </div>
     <script type="text/javascript">
     	$(document).ready(function() {
-             $('#marks').DataTable();
+             $('#marks').DataTable({
+        /* No ordering applied by DataTables during initialisation */
+        "order": []
+    });
         } );
     </script>
 </body>
